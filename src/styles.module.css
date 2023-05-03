@@ -1,9 +1,126 @@
 /* add css module styles here (optional) */
 
-.test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
+:root {
+  --textcolor: #edede9;
+  --radius: 10px;
+  --lighter: #dad7cd;
+  --light: #fb8500;
+  --middle: #219ebc;
+  --dark: #1b7c94;
+  --darker: #0f4452;
+}
+
+h1 {
+  width: 100%;
+  margin-top: 0;
+  text-align: left;
+}
+
+.mainContent {
+  min-height: 300px;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  outline: 0px;
+  border-style: solid;
+  border-width: 1px;
+  margin: 20px 10px;
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: var(--radius);
+  background-color: var(--middle);
+  border-color: var(--darker);
+  color: var(--textcolor);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.primary {
+  background-color: var(--dark);
+  border-color: var(--darker);
+}
+.crossButtonContainer {
+  z-index: 3;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+.crossButton {
+  z-index: 4;
+  position: relative;
+  font-size: 22px;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 0 5px #000;
+}
+.modalClose {
+  display: none;
+}
+
+.defaultButtonsContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.defaultButtonsContainer button {
+  margin-bottom: 0;
+}
+
+.modal {
+  z-index: 1;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.75);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   text-align: center;
+}
+.modalcontent {
+  z-index: 2;
+  position: relative;
+  border: 5px solid var(--tertiary);
+  background-color: #fff;
+  border-radius: var(--radius);
+  max-width: 500px;
+  width: 90%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  padding: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  animation-duration: 0.5s;
+  animation-name: fadein;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
