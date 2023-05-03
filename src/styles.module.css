@@ -17,7 +17,7 @@ h1 {
 }
 
 .mainContent {
-  min-height: 300px;
+  min-height: auto;
 }
 
 button {

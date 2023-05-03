@@ -27,7 +27,7 @@ export const FlogModalComponent = ({
   const closeButton = () => {
     setOpen(false)
   }
-  const closeWidow = (e) => {
+  const closeWindow = (e) => {
     if (e.target === e.currentTarget) {
       setOpen(false)
     }
@@ -106,7 +106,7 @@ export const FlogModalComponent = ({
       />
       <div
         className={isOpen ? styles.modal : styles.modalClose}
-        onClick={(e) => closeWidow(e)}
+        onClick={(e) => closeWindow(e)}
       >
         <div className={styles.modalcontent}>
           <div className={styles.crossButtonContainer}>
