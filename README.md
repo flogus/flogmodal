@@ -12,6 +12,8 @@ npm install --save flogmodal
 
 ## Usage
 
+### With the link between a button and the flogmodal
+
 ```jsx
 import React, { Component } from 'react'
 
@@ -30,6 +32,28 @@ const App = () => {
       >
         your button
       </button>
+      <FlogModalComponent
+        visibility={mymodal}
+        titleLabel='Oooh modal'
+        hasDefaultButton='true'
+        content='Content'
+      />
+    </div>
+  )
+}
+```
+
+### With the linkType (link, button or image)
+
+```jsx
+import React, { Component } from 'react'
+
+import { FlogModalComponent } from 'flogmodal'
+import 'flogmodal/dist/index.css'
+
+const App = () => {
+  return (
+    <div style={{ display: 'flex' }}>
       <FlogModalComponent
         linkType='link'
         buttonLabel='Open a great modal'
