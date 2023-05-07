@@ -1,11 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { FlogModalComponent } from 'flogmodal'
 import 'flogmodal/dist/index.css'
 
 const App = () => {
+  const [mymodal, setMymodal] = useState(false)
+
   return (
     <div style={{ display: 'flex' }}>
+      <button
+        onClick={() => {
+          setMymodal(true)
+        }}
+      >
+        a button for modal 1
+      </button>
+      <button
+        onClick={() => {
+          setMymodal(false)
+        }}
+      >
+        false{' '}
+      </button>
+
+      <FlogModalComponent
+        visibility={mymodal}
+        titleLabel='Oooh modal'
+        hasDefaultButton='true'
+        content='Content'
+      />
       <FlogModalComponent
         linkType='link'
         buttonLabel='Open a great modal'

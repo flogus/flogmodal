@@ -13,54 +13,40 @@ export const FlogModalComponent = ({
   imageHeight,
   imageWidth,
   imageAlt,
-  linkTitle
+  linkTitle,
+  visibility
 }) => {
-  const [isOpen, setOpen] = useState(false)
+  const [isOpen, setIsopen] = useState(false)
 
   const openModal = () => {
     if (isOpen) {
-      setOpen(false)
+      setIsopen(false)
     } else {
-      setOpen(true)
+      setIsopen(true)
     }
   }
   const closeButton = () => {
-    setOpen(false)
+    setIsopen(false)
   }
   const closeWindow = (e) => {
     if (e.target === e.currentTarget) {
-      setOpen(false)
+      setIsopen(false)
     }
   }
 
-  const DefaultButton = ({ DefaultButton }) => {
-    if (hasDefaultButton) {
-      return (
-        <div className={styles.defaultButtonsContainer}>
-          <button onClick={closeButton}>
-            {cancelLabel ? cancelLabel : 'Cancel'}
-          </button>
-          <button className={styles.primary}>
-            {saveLabel ? saveLabel : 'Save'}
-          </button>
-        </div>
-      )
-    } else {
-      return null
+  useEffect(() => {
+    console.log('visibility', visibility)
+    if (visibility) {
+      setIsopen(true)
     }
-  }
-
-  const Title = ({ titleLabel }) => {
-    return <h1>{titleLabel}</h1>
-  }
+  }, [visibility])
 
   useEffect(() => {
     function handleEscapeKey (event) {
       if (event.code === 'Escape') {
-        setOpen(false)
+        setIsopen(false)
       }
     }
-
     document.addEventListener('keydown', handleEscapeKey)
     return () => document.removeEventListener('keydown', handleEscapeKey)
   }, [])
@@ -85,14 +71,44 @@ export const FlogModalComponent = ({
             />
           </a>
         )
-      default:
+      case 'button':
         return (
-          <button title={linkTitle} onClick={openModal}>
+          <button
+            title={linkTitle}
+            onClick={() => {
+              openModal()
+            }}
+          >
             {buttonLabel}
           </button>
         )
+      default:
+        return null
     }
   }
+
+  const Title = ({ titleLabel }) => {
+    return <h1>{titleLabel}</h1>
+  }
+
+  const DefaultButton = ({ DefaultButton }) => {
+    if (hasDefaultButton) {
+      return (
+        <div className={styles.defaultButtonsContainer}>
+          <button onClick={closeButton}>
+            {cancelLabel ? cancelLabel : 'Cancel'}
+          </button>
+          <button className={styles.primary}>
+            {saveLabel ? saveLabel : 'Save'}
+          </button>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
+
+  const customId = 'flogId-' + Math.round(Math.random() * 1000000000)
 
   const theModal = (
     <div className={styles.modalbuttonGlobal}>
@@ -105,7 +121,12 @@ export const FlogModalComponent = ({
         linkTitle={linkTitle}
       />
       <div
-        className={isOpen ? styles.modal : styles.modalClose}
+        id={customId}
+        className={
+          isOpen
+            ? ['flogmodal ' + styles.modal]
+            : ['flogmodal ' + styles.modalClose]
+        }
         onClick={(e) => closeWindow(e)}
       >
         <div className={styles.modalcontent}>

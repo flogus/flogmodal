@@ -19,8 +19,17 @@ import { FlogModalComponent } from 'flogmodal'
 import 'flogmodal/dist/index.css'
 
 const App = () => {
+  const [mymodal, setMymodal] = useState(false)
+
   return (
     <div style={{ display: 'flex' }}>
+      <button
+        onClick={() => {
+          setMymodal(true)
+        }}
+      >
+        your button
+      </button>
       <FlogModalComponent
         linkType='link'
         buttonLabel='Open a great modal'
