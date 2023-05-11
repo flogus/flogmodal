@@ -86,6 +86,40 @@ const App = () => {
 }
 ```
 
+## Attributs
+
+```jsx
+linkType = 'image'
+buttonLabel = 'Custom buttons'
+titleLabel = 'Modal with custom buttons'
+hasDefaultButton = 'true'
+cancelLabel = 'Annuler'
+saveLabel = 'Envoyer'
+imageSrc = 'https://cdn.cdnlogo.com/logos/r/63/react.svg'
+imageHeight = '100px'
+imageWidth = '100px'
+imageAlt = 'React Logo'
+linkTitle = 'Open the modal with a image'
+```
+
+## Parameters
+
+| Attribut         | Values               | Default value | Mandatory | Description                                                                         |
+| ---------------- | -------------------- | ------------- | --------- | ----------------------------------------------------------------------------------- |
+| linkType         | image,link or button | none          | no        |                                                                                     |
+| visibility       |                      | none          | no        | to be used when you want to link a another component like a button to the flogmodal |
+| linkTitle        | String               | none          | no        | to be used with the `linkType=link`                                                 |
+| buttonLabel      | String               | ""            | no        | to be used with the `linkType=button`                                               |
+| titleLabel       | String               | ""            | no        | for all `linkType`                                                                  |
+| hasDefaultButton | Boolean              |               |           | for all `linkType`                                                                  |
+| cancelLabel      | String               | `Cancel`      | no        | for all `linkType`                                                                  |
+| saveLabel        | String               | `Save`        | no        | for all `linkType`                                                                  |
+| imageSrc         | String               | none          | no        | to be used with the `linkType=image`                                                |
+| imageHeight      | String               | none          | no        | to be used with the `linkType=image`                                                |
+| imageWidth       | String               | none          | no        | to be used with the `linkType=image`                                                |
+| imageAlt         | String               | none          | no        | to be used with the `linkType=image`                                                |
+| content          | String or html       | none          | no        | for all `linkType`                                                                  |
+
 ## License
 
 MIT © [flogus](https://github.com/flogus)
