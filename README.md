@@ -86,22 +86,6 @@ const App = () => {
 }
 ```
 
-## Attributs
-
-```jsx
-linkType = 'image'
-buttonLabel = 'Custom buttons'
-titleLabel = 'Modal with custom buttons'
-hasDefaultButton = 'true'
-cancelLabel = 'Annuler'
-saveLabel = 'Envoyer'
-imageSrc = 'https://cdn.cdnlogo.com/logos/r/63/react.svg'
-imageHeight = '100px'
-imageWidth = '100px'
-imageAlt = 'React Logo'
-linkTitle = 'Open the modal with a image'
-```
-
 ## Parameters
 
 | Attribut         | Values               | Default value | Mandatory | Description                                                                         |
