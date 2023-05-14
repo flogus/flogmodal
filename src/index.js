@@ -35,7 +35,6 @@ export const FlogModalComponent = ({
   }
 
   useEffect(() => {
-    console.log('visibility', visibility)
     if (visibility) {
       setIsopen(true)
     }
